@@ -1,0 +1,18 @@
+.elements {
+  margin: 51px auto 0 auto;
+  padding: 0;
+  width: 880px;
+}
+
+@media screen and (max-width: 899px) {
+  .elements {
+    width: 581px;
+    margin-top: 36px;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .elements {
+    width: 320px;
+  }
+}

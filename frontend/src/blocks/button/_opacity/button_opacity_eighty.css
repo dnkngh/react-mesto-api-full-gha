@@ -1,0 +1,12 @@
+@keyframes button_opacity_eighty {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 80%;
+  }
+}
+
+.button_opacity_eighty:hover {
+  animation: button_opacity_eighty .5s forwards;
+}

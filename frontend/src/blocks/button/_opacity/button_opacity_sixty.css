@@ -1,0 +1,12 @@
+@keyframes button_opacity_sixty {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 60%;
+  }
+}
+
+.button_opacity_sixty:hover {
+  animation: button_opacity_sixty .5s forwards;
+}
