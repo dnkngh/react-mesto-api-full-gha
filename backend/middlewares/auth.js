@@ -1,3 +1,4 @@
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
 const Unauthorized = require('./errors/Unauthorized');
@@ -13,7 +14,10 @@ module.exports = (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, '5sd0fhd5sqsa62ghs');
+    payload = jwt.verify(
+      token,
+      process.env.NODE_ENV === 'production' ? process.env.JWT_SECRET : '5sd0fhd5sqsa62ghs',
+    );
   } catch (err) {
     return next(new Unauthorized('Пройдите авторизацию'));
   }
