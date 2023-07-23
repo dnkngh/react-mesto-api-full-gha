@@ -154,7 +154,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://api.dnknghmesto.nomoredomains.xyz/',
+  baseUrl: 'http://api.dnknghmesto.nomoredomains.xyz',
   headers: {
     // authorization: '0bd885b9-3a94-4715-9b47-6375e24059b0',
     'Content-Type': 'application/json',
@@ -163,7 +163,7 @@ const api = new Api({
 
 
 const apiAuth = new Api({
-  baseUrl: 'http://api.dnknghmesto.nomoredomains.xyz/',
+  baseUrl: 'http://api.dnknghmesto.nomoredomains.xyz',
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
