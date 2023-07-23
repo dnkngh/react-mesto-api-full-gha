@@ -22,11 +22,13 @@ app.disable('x-powered-by');
 
 app.use(requestLogger);
 app.use(requestHandlerCORS);
+
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
+
 app.use(router);
 app.use(errorLogger);
 app.use(errors());
