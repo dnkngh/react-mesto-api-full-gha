@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization || !authorization.startsWith('Bearer ')) {
-    return next(new Unauthorized('Пройдите авторизацию'));
+    return next(new Unauthorized('Пройдите авторизацию1'));
   }
 
   const token = authorization.replace('Bearer ', '');
@@ -20,7 +20,7 @@ module.exports = (req, res, next) => {
       '5sd0fhd5sqsa62ghs',
     );
   } catch (err) {
-    return next(new Unauthorized('Пройдите авторизацию1'));
+    return next(new Unauthorized('Пройдите авторизацию2'));
   }
 
   req.user = payload;
