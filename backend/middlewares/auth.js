@@ -16,7 +16,8 @@ module.exports = (req, res, next) => {
   try {
     payload = jwt.verify(
       token,
-      process.env.NODE_ENV === 'production' ? process.env.JWT_SECRET : '5sd0fhd5sqsa62ghs',
+      // process.env.NODE_ENV === 'production' ? process.env.JWT_SECRET : '5sd0fhd5sqsa62ghs',
+      '5sd0fhd5sqsa62ghs',
     );
   } catch (err) {
     return next(new Unauthorized('Пройдите авторизацию'));
