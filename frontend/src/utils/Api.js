@@ -150,10 +150,10 @@ class Api {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
-        }
+        },
       }
-    )
-  }
+    );
+  };
 }
 
 const api = new Api({

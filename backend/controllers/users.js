@@ -1,3 +1,4 @@
+require('dotenv').config();
 const status = require('http2').constants;
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
@@ -137,7 +138,8 @@ module.exports.login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        '5sd0fhd5sqsa62ghs',
+        process.env.NODE_ENV === 'production' ? process.env.JWT_SECRET : '5sd0fhd5sqsa62ghs',
+        // '5sd0fhd5sqsa62ghs',
         { expiresIn: '7d' },
       );
       res.send({ token });
