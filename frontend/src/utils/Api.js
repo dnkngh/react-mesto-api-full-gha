@@ -122,7 +122,7 @@ class Api {
 
   register(data) {
     return this._request(
-      this._baseUrl + `/signup`,
+      this._baseUrl + `signup`,
       {
         method: 'POST',
         headers: this._headers,
@@ -133,7 +133,7 @@ class Api {
 
   login(data) {
     return this._request(
-      this._baseUrl + `/signin`,
+      this._baseUrl + `signin`,
       {
         method: 'POST',
         headers: this._headers,
@@ -144,7 +144,7 @@ class Api {
 
   checkToken(token) {
     return this._request(
-      this._baseUrl + `/users/me`,
+      this._baseUrl + `users/me`,
       {
         method: 'GET',
         headers: Object.assign({}, this._headers, {Authorization: `Bearer ${token}`}),
@@ -154,7 +154,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://api.dnknghmesto.nomoredomains.xyz',
+  baseUrl: 'http://api.dnknghmesto.nomoredomains.xyz/',
   headers: {
     // authorization: '0bd885b9-3a94-4715-9b47-6375e24059b0',
     'Content-Type': 'application/json',
@@ -163,7 +163,7 @@ const api = new Api({
 
 
 const apiAuth = new Api({
-  baseUrl: 'http://api.dnknghmesto.nomoredomains.xyz',
+  baseUrl: 'http://api.dnknghmesto.nomoredomains.xyz/',
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
