@@ -10,8 +10,10 @@ const auth = require('../middlewares/auth');
 router.use('/signin', loginValidation, login);
 router.post('/signup', createUserValidation, createUser);
 
-router.use('/users', auth, usersRouter);
-router.use('/cards', auth, cardsRouter);
+// router.use('/users', auth, usersRouter);
+// router.use('/cards', auth, cardsRouter);
+router.use('/users', usersRouter);
+router.use('/cards', cardsRouter);
 router.use('/*', (req, res, next) => {
   next(new NotFound('Not found'));
 });
