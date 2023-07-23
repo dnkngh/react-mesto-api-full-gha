@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 130.193.42.83
 
-Frontend https://...
+Frontend http://dnknghmesto.nomoredomains.xyz/
 
-Backend https://...
+Backend http://api.dnknghmesto.nomoredomains.xyz/
