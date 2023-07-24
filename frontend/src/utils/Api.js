@@ -129,10 +129,6 @@ class Api {
     return Promise.all([this.getInitialCards(), this.getUserInfo()]);
   };
 
-
-
-
-
   register(data) {
     return this._request(
       this._baseUrl + `signup`,
@@ -167,7 +163,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://api.dnknghmesto.nomoredomains.xyz/',
+  baseUrl: 'https://api.dnknghmesto.nomoredomains.xyz/',
   headers: {
     // authorization: '0bd885b9-3a94-4715-9b47-6375e24059b0',
     'Content-Type': 'application/json',
