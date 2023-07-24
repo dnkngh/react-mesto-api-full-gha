@@ -1,7 +1,10 @@
 const allowed = [
   'http://localhost:3000',
+  'https://localhost:3000',
   'http://dnknghmesto.nomoredomains.xyz',
   'https://dnknghmesto.nomoredomains.xyz',
+  'http://api.dnknghmesto.nomoredomains.xyz',
+  'https://api.dnknghmesto.nomoredomains.xyz',
 ];
 
 const requestHandlerCORS = (req, res, next) => {
