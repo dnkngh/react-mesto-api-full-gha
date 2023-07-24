@@ -14,7 +14,7 @@ import Main from './Main'
 import ProtectedRoute from './ProtectedRoute'
 import Register from './Register'
 
-import { api, apiAuth } from '../utils/Api'
+import api from '../utils/Api'
 import { CurrentUserContext } from '../contexts/CurrentUserContext'
 
 
@@ -125,10 +125,11 @@ function App() {
   function handleSignOut() {
     localStorage.removeItem('jwt');
     setLoggedIn(false);
+    api.setAuthHeader();
   }
 
   function handleLogin(loginData) {
-    apiAuth.login(loginData)
+    api.login(loginData)
       .then(res => {
         if (res && res.token) {
           setCurrentUser({...currentUser, email: loginData.email});
@@ -146,7 +147,8 @@ function App() {
   function checkToken() {
     const token = localStorage.getItem('jwt');
     if (token) {
-      apiAuth.checkToken(token)
+      api.setAuthHeader(token);
+      api.checkToken(token)
         .then(res => {
           if (res && res.data) {
             setLoggedIn(true);
@@ -165,7 +167,7 @@ function App() {
   useEffect(() => {checkToken()}, [])
 
   function handleRegister(registrationData) {
-    apiAuth.register(registrationData)
+    api.register(registrationData)
       .then(res => {
         if (res && res.data) {
           openInfooTooltipPopup(true);

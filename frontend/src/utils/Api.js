@@ -2,6 +2,7 @@ class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl;
     this._headers = options.headers;
+    this._authHeaders = null;
   };
 
   _request(url, options) {
@@ -20,7 +21,7 @@ class Api {
       this._baseUrl + 'cards',
       {
         method: 'GET',
-        headers: this._headers,
+        headers: this._authHeaders,
       },
     );
   };
@@ -30,7 +31,7 @@ class Api {
       this._baseUrl + 'users/me',
       {
         method: 'GET',
-        headers: this._headers,
+        headers: this._authHeaders,
       },
     );
   };
@@ -40,7 +41,7 @@ class Api {
       this._baseUrl + 'users/me',
       {
         method: 'PATCH',
-        headers: this._headers,
+        headers: this._authHeaders,
         body: JSON.stringify({
           name: data.name,
           about: data.about,
@@ -54,7 +55,7 @@ class Api {
       this._baseUrl + 'users/me/avatar',
       {
         method: 'PATCH',
-        headers: this._headers,
+        headers: this._authHeaders,
         body: JSON.stringify({
           avatar: data.avatar,
         }),
@@ -67,7 +68,7 @@ class Api {
       this._baseUrl + 'cards',
       {
         method: 'POST',
-        headers: this._headers,
+        headers: this._authHeaders,
         body: JSON.stringify({
           name: data.name,
           link: data.link,
@@ -81,7 +82,7 @@ class Api {
       this._baseUrl + `cards/${id}`,
       {
         method: 'DELETE',
-        headers: this._headers,
+        headers: this._authHeaders,
       },
     );
   };
@@ -91,7 +92,7 @@ class Api {
       this._baseUrl + `cards/likes/${id}`,
       {
         method: `${isLiked ? 'PUT' : 'DELETE'}`,
-        headers: this._headers,
+        headers: this._authHeaders,
       }
     )
   }
@@ -101,7 +102,7 @@ class Api {
       this._baseUrl + `cards/likes/${id}`,
       {
         method: 'PUT',
-        headers: this._headers,
+        headers: this._authHeaders,
       },
     );
   };
@@ -111,13 +112,23 @@ class Api {
       this._baseUrl + `cards/likes/${id}`,
       {
         method: 'DELETE',
-        headers: this._headers,
+        headers: this._authHeaders,
       },
     );
   };
 
   gatherInitialData() {
     return Promise.all([this.getInitialCards(), this.getUserInfo()]);
+  };
+
+
+
+  setAuthHeader(token) {
+    this._authHeader = {...this._headers, authorization: `Bearer ${token}`};
+  };
+
+  clearAuthHeader() {
+    this._authHeader = null;
   };
 
   register(data) {
@@ -144,14 +155,11 @@ class Api {
 
   checkToken(token) {
     return this._request(
-      this._baseUrl + `users/me`,
+      this._baseUrl + 'users/me',
       {
         method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-      }
+        headers: this._authHeaders,
+      },
     );
   };
 }
@@ -164,13 +172,4 @@ const api = new Api({
   },
 });
 
-
-const apiAuth = new Api({
-  baseUrl: 'http://api.dnknghmesto.nomoredomains.xyz/',
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  },
-});
-
-export { api, apiAuth }
+export default api;
