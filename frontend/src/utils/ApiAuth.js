@@ -51,7 +51,7 @@ class ApiAuth {
 }
 
 const apiAuth = new ApiAuth({
-  baseUrl: 'http://api.dnknghmesto.nomoredomains.xyz/',
+  baseUrl: 'https://api.dnknghmesto.nomoredomains.xyz/',
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
