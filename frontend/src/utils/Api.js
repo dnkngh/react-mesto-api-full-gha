@@ -1,7 +1,15 @@
 class Api {
-  constructor(options) {
-    this._baseUrl = options.baseUrl;
-    this._headers = options.headers;
+  constructor({ baseUrl, headers }) {
+    this._baseUrl = baseUrl;
+    this._headers = headers;
+    this._authHeaders = null;
+  };
+
+  setAuthHeader(token) {
+    this._authHeaders = {...this._headers, authorization: `Bearer ${token}`};
+  };
+
+  clearAuthHeader() {
     this._authHeaders = null;
   };
 
@@ -123,13 +131,7 @@ class Api {
 
 
 
-  setAuthHeader(token) {
-    this._authHeader = {...this._headers, authorization: `Bearer ${token}`};
-  };
 
-  clearAuthHeader() {
-    this._authHeader = null;
-  };
 
   register(data) {
     return this._request(

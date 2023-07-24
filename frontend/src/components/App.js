@@ -125,7 +125,7 @@ function App() {
   function handleSignOut() {
     localStorage.removeItem('jwt');
     setLoggedIn(false);
-    api.setAuthHeader();
+    api.clearAuthHeader();
   }
 
   function handleLogin(loginData) {
