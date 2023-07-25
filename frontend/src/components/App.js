@@ -45,7 +45,7 @@ function App() {
         })
         .catch(error => console.log(error));
     }
-  }, [currentUser, loggedIn]);
+  }, [loggedIn]);
 
   function handleEditProfileClick() {
     setEditProfilePopupOpen(true);
