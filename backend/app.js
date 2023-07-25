@@ -30,7 +30,7 @@ app.use(helmet());
 app.disable('x-powered-by');
 
 app.use(requestLogger);
-app.use(requestHandlerCORS);
+// app.use(requestHandlerCORS);
 
 app.get('/crash-test', () => {
   setTimeout(() => {
