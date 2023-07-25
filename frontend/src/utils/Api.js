@@ -97,7 +97,7 @@ class Api {
 
   changeLikeCardStatus(id, isLiked) {
     return this._request(
-      this._baseUrl + `cards/likes/${id}`,
+      this._baseUrl + `cards/${id}/likes`,
       {
         method: `${isLiked ? 'PUT' : 'DELETE'}`,
         headers: this._authHeaders,
@@ -107,7 +107,7 @@ class Api {
 
   likeCard(id) {
     return this._request(
-      this._baseUrl + `cards/likes/${id}`,
+      this._baseUrl + `cards/${id}/likes`,
       {
         method: 'PUT',
         headers: this._authHeaders,
@@ -117,7 +117,7 @@ class Api {
 
   dislikeCard(id) {
     return this._request(
-      this._baseUrl + `cards/likes/${id}`,
+      this._baseUrl + `cards/${id}/likes`,
       {
         method: 'DELETE',
         headers: this._authHeaders,
