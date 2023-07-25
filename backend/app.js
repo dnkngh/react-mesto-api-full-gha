@@ -13,12 +13,7 @@ const requestHandlerCORS = require('./middlewares/requestHandlerCORS');
 const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 const app = express();
 
-mongoose.connect(DB_URL, { useNewUrlParser: true });
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
+mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true, family: 4 });
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,

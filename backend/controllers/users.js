@@ -20,7 +20,7 @@ module.exports.getUser = (req, res, next) => {
   userSchema.findById(req.user._id)
     .then((user) => {
       if (!user) {
-        throw new NotFound('Not found');
+        throw new NotFound('User not found');
       }
       res.status(status.HTTP_STATUS_OK).send(user);
     })
