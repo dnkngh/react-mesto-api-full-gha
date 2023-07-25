@@ -13,7 +13,7 @@ router.post('/signup', createUserValidation, createUser);
 router.use('/users', auth, usersRouter);
 router.use('/cards', auth, cardsRouter);
 router.use('/*', (req, res, next) => {
-  next(new NotFound('Page not found'));
+  next(new NotFound('Page Not found'));
 });
 
 module.exports = router;
