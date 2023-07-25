@@ -84,7 +84,7 @@ function App() {
 
   function handleCardLike(card) {
     console.log('2');
-    console.log(card);
+    console.log(card.likes);
     const isLiked = card.likes.some(i => i === currentUser._id);
 
     api.changeLikeCardStatus(card._id, !isLiked).then(newCard => {
@@ -156,7 +156,6 @@ function App() {
           if (res && res.data) {
             setLoggedIn(true);
             setCurrentUser({...currentUser, email: res.data.email});
-            console.log(currentUser);
             navigate('/');
           }
         })
@@ -167,7 +166,7 @@ function App() {
     }
   }
 
-  useEffect(() => {checkToken()}, [checkToken])
+  useEffect(() => {checkToken()}, [])
 
   function handleRegister(registrationData) {
     api.register(registrationData)
