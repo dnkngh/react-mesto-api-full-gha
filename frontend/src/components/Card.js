@@ -6,7 +6,7 @@ import {CurrentUserContext} from '../contexts/CurrentUserContext'
 function Card({card, onCardClick, onCardLike, onCardDeleteClick}) {
   const currentUser = React.useContext(CurrentUserContext);
   const isOwn = card.owner === currentUser._id;
-  console.log(card);
+  console.log(card.likes);
   const isLiked = card.likes.some(user => user === currentUser._id);
   const cardLikeButtonClassName = (
     `elements__favorite-disabled button button_opacity_fifty ${isLiked && 'elements__favorite-active'}`
