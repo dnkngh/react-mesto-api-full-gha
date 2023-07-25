@@ -136,6 +136,7 @@ function App() {
         if (res && res.token) {
           setCurrentUser({...currentUser, email: loginData.email});
           localStorage.setItem('jwt', res.token);
+          api.setAuthHeader(res.token);
           setLoggedIn(true);
           navigate('/');
         }
