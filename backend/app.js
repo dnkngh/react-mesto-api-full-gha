@@ -15,6 +15,11 @@ const app = express();
 
 mongoose.connect(DB_URL, { useNewUrlParser: true });
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
@@ -30,7 +35,7 @@ app.use(helmet());
 app.disable('x-powered-by');
 
 app.use(requestLogger);
-// app.use(requestHandlerCORS);
+app.use(requestHandlerCORS);
 
 app.get('/crash-test', () => {
   setTimeout(() => {
