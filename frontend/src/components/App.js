@@ -167,7 +167,7 @@ function App() {
     }
   }
 
-  useEffect(() => {checkToken()}, [])
+  useEffect(() => {checkToken()}, [checkToken])
 
   function handleRegister(registrationData) {
     api.register(registrationData)
