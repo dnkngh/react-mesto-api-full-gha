@@ -61,7 +61,7 @@ module.exports.addLike = (req, res, next) => {
         throw new NotFound('Not found');
       }
 
-      res.send({ card });
+      res.send(card);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
