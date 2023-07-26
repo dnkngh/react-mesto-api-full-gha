@@ -8,9 +8,11 @@ function Card({card, onCardClick, onCardLike, onCardDeleteClick}) {
   const isOwn = card.owner === currentUser._id;
   console.log('card')
   console.log(card)
+  console.log('data');
+  console.log(card.data);
   console.log('likes');
-  console.log(card.likes);
-  const isLiked = card.likes.some(user => user === currentUser._id);
+  console.log(card.data.likes)
+  const isLiked = card.data.likes.some(user => user === currentUser._id);
   const cardLikeButtonClassName = (
     `elements__favorite-disabled button button_opacity_fifty ${isLiked && 'elements__favorite-active'}`
   );
