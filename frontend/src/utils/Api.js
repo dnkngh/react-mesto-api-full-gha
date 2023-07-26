@@ -105,26 +105,6 @@ class Api {
     )
   }
 
-  likeCard(id) {
-    return this._request(
-      this._baseUrl + `cards/${id}/likes`,
-      {
-        method: 'PUT',
-        headers: this._authHeaders,
-      },
-    );
-  };
-
-  dislikeCard(id) {
-    return this._request(
-      this._baseUrl + `cards/${id}/likes`,
-      {
-        method: 'DELETE',
-        headers: this._authHeaders,
-      },
-    );
-  };
-
   gatherInitialData() {
     return Promise.all([this.getInitialCards(), this.getUserInfo()]);
   };
