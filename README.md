@@ -7,7 +7,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 130.193.42.83
+IP 130.193.42.83
 
 Frontend https://dnknghmesto.nomoredomains.xyz/
 
