@@ -82,7 +82,7 @@ module.exports.deleteLike = (req, res, next) => {
       if (!card) {
         throw new NotFound('Not found');
       }
-      res.send({ data: card });
+      res.send(card);
     })
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
