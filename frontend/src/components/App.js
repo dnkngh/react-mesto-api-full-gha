@@ -151,7 +151,7 @@ function App() {
       api.setAuthHeader(token);
       api.checkToken(token)
         .then(res => {
-          if (res) {
+          if (res && res.data) {
             setLoggedIn(true);
             setCurrentUser({...currentUser, email: res.data.email});
             navigate('/');
