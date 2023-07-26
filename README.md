@@ -5,12 +5,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/dnkngh/react-mesto-api-full-gha/tree/main
 
 ## Ссылки на проект
 
 IP-адрес 130.193.42.83
 
-Frontend http://dnknghmesto.nomoredomains.xyz/
+Frontend https://dnknghmesto.nomoredomains.xyz/
 
-Backend http://api.dnknghmesto.nomoredomains.xyz/
+Backend https://api.dnknghmesto.nomoredomains.xyz/
